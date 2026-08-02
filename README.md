@@ -1,14 +1,12 @@
-# AI Code Reviewer Bot 🤖
+# AI Code Reviewer Bot 
 
 An automated GitHub Action powered by the Gemini API that reviews code changes in Pull Requests. It analyzes your unified git diff, flags bugs, security issues, and resource leaks, and posts constructive comments directly on the exact lines modified in the PR.
 
 Unlike traditional bots that leave one long, messy comment at the bottom of a PR, this bot reviews your changes like a human senior engineer: **directly inline, where the code changed.**
 
----
 
-## 🛠 How It Works
+##  How It Works
 
-```
 [ Pull Request Opened/Updated ]
              │
              ▼
@@ -30,9 +28,7 @@ Unlike traditional bots that leave one long, messy comment at the bottom of a PR
 [ Submit Review ] ── Posts a single, unified review with inline comments on PR
 ```
 
----
-
-## ✨ Features
+##  Features
 
 * **True Inline Review:** Leverages the GitHub Pull Request Reviews API to post comments directly on the line where changes occurred.
 * **Unified Review Blocks:** Batches comments into a single review post, preventing email spam for developers.
@@ -40,9 +36,8 @@ Unlike traditional bots that leave one long, messy comment at the bottom of a PR
 * **Zero Hosting Cost:** Runs entirely on GitHub Actions' free tier—no external hosting or servers to manage.
 * **Local Simulation Mode:** Run the reviewer locally on mock diff files without committing or using actions.
 
----
 
-## 🚀 Setup Guide (Get Started in 2 Minutes)
+##  Setup Guide (Get Started in 2 Minutes)
 
 ### 1. Add the Workflow to Your Repo
 Create a file named `.github/workflows/review.yml` in your repository and copy the following configuration:
@@ -92,9 +87,8 @@ Add `reviewer.py` and `diff_parser.py` into the root directory of your repositor
 3. Click **New repository secret**.
 4. Set Name to `GEMINI_API_KEY` and Value to your API key.
 
----
 
-## 💻 Local Testing & Development
+## Local Testing & Development
 
 You can test the diff parsing and Gemini feedback loop locally without pushing to GitHub.
 
@@ -119,9 +113,8 @@ You can test the diff parsing and Gemini feedback loop locally without pushing t
    python tests/simulate_pr.py
    ```
 
----
 
-## 📋 Evaluation Results
+##  Evaluation Results
 
 To guarantee high quality before deployment, the bot's capabilities were benchmarked against a custom test suite of **30 buggy commits** spanning multiple programming languages:
 
