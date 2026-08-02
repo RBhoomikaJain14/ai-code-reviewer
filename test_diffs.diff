@@ -1,0 +1,39 @@
+diff --git a/src/auth.js b/src/auth.js
+index a1b2c3d..e4f5g6h 100644
+--- a/src/auth.js
++++ b/src/auth.js
+@@ -10,6 +10,12 @@ function login(username, password) {
+   const query = `SELECT * FROM users WHERE username = '${username}' AND password = '${password}'`;
+   db.execute(query);
+ }
++
++function generateToken(user) {
++  // BUG: Hardcoded secret key
++  const secret = "super-secret-key-12345";
++  return jwt.sign({ id: user.id }, secret, { expiresIn: '1h' });
++}
+ 
+ module.exports = { login };
+diff --git a/app.py b/app.py
+index 9876543..1234567 100644
+--- a/app.py
++++ b/app.py
+@@ -1,8 +1,15 @@
+ import os
+ import requests
+ 
+-def get_data(url):
+-    response = requests.get(url)
+-    return response.json()
++def get_data(url):
++    # BUG: No error handling, will throw if request fails or if JSON is invalid
++    response = requests.get(url, timeout=5)
++    return response.json()
++
++def process_image(image_path):
++    # BUG: Resource leak - file is opened but never closed
++    f = open(image_path, 'rb')
++    data = f.read()
++    return len(data)
+ 
+ print("App started")
