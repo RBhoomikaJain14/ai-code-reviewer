@@ -248,3 +248,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+API_KEY = "12345-secret-key-abcdef"
