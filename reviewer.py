@@ -5,7 +5,7 @@ import requests
 import google.generativeai as genai
 from dotenv import load_dotenv
 
-# Load local environment variables (if any)
+# Load local environment variables (if any) 
 load_dotenv()
 
 # Add directory of this script to path to import diff_parser
