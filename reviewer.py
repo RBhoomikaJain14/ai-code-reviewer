@@ -18,7 +18,7 @@ GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 IS_MOCK_MODE = not GEMINI_API_KEY or GEMINI_API_KEY == "your_gemini_api_key_here"
 
 # Initialize modern GenAI client
-client = None
+client = None 
 if not IS_MOCK_MODE:
     try:
         client = genai.Client(api_key=GEMINI_API_KEY)
